@@ -1,0 +1,157 @@
+\documentclass[a4paper,13pt]{article}
+
+% ---------- PACKAGES ----------
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\begin{document}
+
+% ---------- COVER PAGE ----------
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+{\LARGE Metaverse Age Training Institute\\[1ex] 
+Cyber Security Department\\[3cm]}
+{\Huge \bfseries Rule-Based Artificial Intelligence Scientific Research Paper\\[2cm]}
+
+% ---------- YOUR NAME ----------
+{\Large Matthew Cymone Arradaza Osal\\[1ex] 
+\today\\[8cm]}
+\vfill \noindent
+
+% ---------- YOUR GITHUB REPOSITORY LINK ----------
+\href{https://github.com/Siotii/Rulebasedai}{github.com/Siotii/Rulebasedai}
+\end{titlepage}
+
+
+% ---------- ABSTRACT ----------
+\pagenumbering{roman}
+\begin{abstract}
+This study checks how basic rule-driven AI can guess Seattle weather, figuring out if a day has rain or days that is dry, also if it feels warm or chilly. It shows that straightforward AI, no complex training needed, still gives useful results sometimes. With climate numbers pulled from an CSV, researchers built two different logic-based systems to test this idea. One system calls a day wet once rain hits more than 0.1 mm, the other says it's warm when highs go above or hit 10°C.
+
+
+
+One model ran on Python with tools like Pandas, NumPy, Matplotlib, alongside Scikit-learn; the other used the same setup. Performance got checked through measures such as accuracy, precision, recall - plus F1 score. Findings revealed the rainfall-driven version hit 96.4% accuracy and full precision at 100%, yet recall dipped to 92.6%, meaning some rainy days slipped through. On the flip side, the temperature-guided model aced every metric, correctly sorting warm from cold days without error.
+
+
+
+This study shows rule-based AI isn't very flexible - but it still works well when you need fast, clear results. Even though these systems don't learn over time, they’re dependable when data stays steady. When weather shifts suddenly or info is missing, performance drops fast. Despite that, their open structure makes decisions easy to follow, which helps in high-stakes situations. Mixing them later on with learning algorithms might boost how quickly they react to messy real-world conditions. In short, basic rule-based models can still give solid weather estimates - useful not just for forecasting but also teaching and deeper analysis.
+\end{abstract}
+\newpage
+
+
+% ---------- TABLE OF CONTENTS ----------
+\tableofcontents
+\newpage
+
+
+% ---------- INTRODUCTION ----------
+\pagenumbering{arabic}
+\section{Introduction}
+
+
+Predicting the weather plays an essential role in world today, from affecting how we get around, grow food, plan gatherings, stay safe, and just generally live our lives. Good predictions empower people and groups to decide wisely, lessen dangers, and gear up for whatever comes. Though today’s methods frequently utilize sophisticated computer programs, space-based observations, alongside detailed simulations of the atmosphere, even basic techniques can reveal useful information. Essentially, some AI works by following a set of clear instructions; if this happens, then do that. Because they are so straightforward to understand and also easy to build, these systems come in handy where processing power isn’t abundant, or knowing how a decision was reached matters.
+
+We made two rule-based artificial intelligence models that predict Seattle weather, if a day is rainy or not. These systems rely on established rules. One looks at how much it rains or snows, or drizzles and to decide if a day qualifies as "wet." We tested both with past weather records. This next step figures out if each day felt warm or cold, looking only at the highest temperature. Then, we check how well its guesses match up with what actually happened with real weather data.
+
+Both models get scored using several key measurements like accuracy, precision, recall, alongside the F1 score. Rather than just noting right answers, these figures show us how truly effective each one is. Accuracy gives a general sense of being correct; precision highlights trustworthy positive results; recall reveals success at finding what matters; meanwhile, the F1 score finds middle ground between them.
+
+This looks at what works well and what doesn’t. With AI that follows fixed rules. Although these systems aren’t always as good at guessing outcomes as newer approaches, their straightforward nature, ease of use, moreover how easily people can understand them, means they still have a place when knowing why something happens or speed are key.
+
+
+
+
+% ---------- LITERATURE REVIEW ----------
+\section{Literature Review}
+
+
+\subsection{What is Rule-based?}
+
+According to GeeksforGeeks (2024), These systems make decisions, carry out tasks, or draw conclusions using a set of predetermined rules and logic.Essentially, these systems operate methodically. First, they hold a collection of "when this happens, do that" of rules. Next, a component examines the new information, comparing it to those rules. Ultimately, if there’s a match, the system carries out the designated response or reaches a decision. Because each choice links directly to a clear rule, these systems offer openness alongside reliable results, allowing you to follow the reasoning and verify how things work. Consequently, they shine when dealing with stable situations, such as meeting regulations, running routine checks, or handling established customer service issues.These systems, while consistent, cannot improve with experience as they struggle when facing something unexpected. Consequently, if a situation falls outside their programmed instructions, things break down or someone must fix them by hand. Rule-based systems offer a solid starting point for artificial intelligence. They are reliable and straightforward. However, because they don’t learn or adjust like some approaches, they lack flexibility.
+
+\subsection{Relative Review in Rule-Based AI in Weather Prediction}
+
+More farmers want ways to grow food responsibly while dealing with changing climates, so smart tools like analyzing weather information are gaining traction. While newer approaches such as machine learning gain favor, traditional AI systems built on established rules remain essential for predicting weather patterns alongside planning crops. These systems translate things like heat, moisture, and precipitation into practical guidance in helping protect harvests, schedule watering, then estimate how much produce to expect, because they operate using logic developed by experts. Egypt showcases why this approach works, shifting temperatures alongside rainfall changes clearly affect both farm ground quality and crop yields, especially given how much agriculture there relies on stable weather. A research study from (Mohamed et al., 2025), suggests a straightforward guidance rooted in current forecasts helps smaller farms thrive; these tools are valuable when folks need to grasp why a suggestion is being made, fostering trust since everything is out in the open. Rule-based systems struggle with quickly shifting weather patterns because they don’t always follow expectations. So, even though these systems help farms adapt to conditions, pairing them with learning approaches like those used in image recognition offers better performance as the climate changes faster. This combination boosts reliability, precision, and moreover extends reach.
+
+
+
+% ---------- METHODS ----------
+\section{Methods}
+In this research paper, we checked how two rule based AI models which i created to  forecasted weather by using Seattle’s historical climate patterns. Info taken from a CSV included details like weather condition, wind movement, or peak temperature values. We used Pandas for cleaning up data, while NumPy tackled math operations; Matplotlib drew charts and plots, whereas Scikit-learn tracked outcomes such as accuracy, precision, recall, and F1 scores.
+
+The first AI model sorted days into "wet" or `"dry" using recorded weather and a 0.1 mm rainfall precipitation threshold. We added \texttt{"actual\_wet"} to mark the true wet days, alongside \texttt{"predicted\_wet"} for predictions from our model. The second AI model checks whether a day was "warm" based on the maximum temperature, considering it warm if it is at or above 10 degrees Celsius. We used the same steps to find \texttt{"actual\_warm"} and \texttt{"predicted\_warm"}.
+
+measured each model’s performance, then displayed outcomes plainly through bar charts that lined up values next to one another so easily spotting gaps in accuracy, precision, recall, or F1 score became straightforward.
+Even so, the project had boundaries, model outcomes depended heavily on how good the data was, meaning mistakes or gaps might cause big problems. On top of that, AI built on fixed rules often struggles to adjust, failing badly with new situations because it overlooks small changes in patterns. Ultimately, shifts in weather could show up wrong in data sets that don’t evolve.
+
+
+
+
+% ---------- RESULTS ----------
+\section{Results}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figure_1.png}
+    \caption{Rule-based AI model Comparison}
+    \label{fig:placeholder}
+\end{figure}
+
+% ---------- DISCUSSION ----------
+\section{Discussion}
+The findings showed rule-based AI systems performed well when predicting Seattle weather. Yet, the first model  - which labeled days either “dry” or “wet” - hit around 96.4\% accuracy, with perfect precision at 100\%, though recall landed at 92.6\%, plus an F1 of 96.2\%. That means it rarely called dry days wet when they weren't, so false alarms were rare. Still, it missed some actual rainy days, marking them dry instead. Because of this gap, certain wet periods slipped through like some rainy days was classified as dry days. Since it is important  knowing when it’ll rain matters for farming, travel, and outdoor events, missing those days could cause real issues.
+
+On the flip side, model two nails whether a day is cold or warm with no misses. This setup aced all tests: spot-on accuracy, razor-sharp precision, flawless recall, topped off with max F1 score. Not one data point slipped through; everything lined up clean thanks to steady temp cutoffs catching warm stretches. Thanks to that reliability, sectors such as power use, farming, or travel prep might actually use this approach when making decisions tied to temperature.
+
+Even though the results look good, there are still some downsides worth noting. How well the models work mostly hinges on how solid and complete the data is. While performance numbers seem strong in past examples, it's unclear if they'll hold up when faced with new situations. Rules-based systems tend to get flak for being too inflexible, struggling when odd weather pops up or complex variable links appear. Since the dataset doesn't update in real time, there’s a catch to actual weather that keeps shifting fast, making fixed info less reliable over time.
+
+On top of that, we ran into a few surprises, especially with how the first model did. Even though the precision number looks good, the recall being lower means some wet scenarios might’ve slipped through. That gap shows there's a chance things could get labeled wrong, which might leave us unready when rain hits.
+
+For everyday use, these models do fine with simple weather predictions even though they'd perform far better if improved using techniques such as machine learning. Rather than relying on basic data alone, advanced versions could include extra variables, adjusting dynamically for their interactions, which might lead to more accurate forecasts in practice.
+
+Finding also reveals how tweaking the data matters especially when feeding fresh updates to boost forecast accuracy. A broader pool of info, pulled across longer stretches and spiced with elements such as wind intensity, moisture levels, or pressure changes, could make models react sharper and adapt easier when weather turns unexpected.
+
+
+On the whole, while our rule-based AI did okay at telling wet from dry or cold from warm days, it ran into problems because of shaky data and rigid setups or the model itself. Looking ahead, future  research should focus more on refining prediction methods, working past these hiccups to make forecasts sharper and more flexible.
+
+
+
+% ---------- CONCLUSION ----------
+\section{Conclusion}
+In short, using those two rule-based systems to predict Seattle’s weather revealed their real-world performance - showing strengths alongside weak spots. The first model, designed to separate rainy days from dry ones, reached 96.4\% accuracy and made correct guesses most of the time; however, its recall landed at 92.6\%, which means some wet days were wrongly labeled as dry. This difference becomes critical beyond controlled tests: identifying dry spells works well, yet catching all rainy days matters just as much, particularly in areas such as agriculture or transportation where errors lead to actual consequences.
+
+
+
+On the flip side, model two aced all trials when separating chilly days from warmer ones, proving it’s solid for tasks tied to temperature swings. Given how flawlessly it ran, industries relying on accurate temp predictions - say, those sizing up energy needs or scheduling outdoor events - are now taking notice. Yet with little change in the data, it makes more sense to hold off before rolling it out in chaotic, real-world conditions.
+
+
+
+The results aren't only about model performance - they point to deeper problems linked to shaky data or awkward software upgrades in weather forecasting. When conditions change fast, rigid models tend to fall apart since weather refuses to follow set patterns. While these approaches seem okay early on, they slowly reveal why adaptable fixes become essential over time. Future efforts should blend learning systems that adjust themselves with real-time shifts - like sudden humidity jumps, wind bursts, or pressure swings - to boost forecast accuracy.
+
+
+
+Looking at these models reveals small tweaks make a difference - they hold onto current info while learning patterns more effectively. Because of that, solving the glitches might seriously boost weather forecasts, letting various sectors prepare better when conditions change. Even so, while early outcomes seem decent, they hint at systems that react faster and mirror real-life situations more closely.
+
+% ---------- REFERENCES ----------
+\section{References}
+
+\begin{description}
+   \item GeeksforGeeks (2024). RuleBased System in AI. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/artificial-intelligence/rule-based-system-in-ai.
+   \item Mohamed, S.A., Maksoud, O.O.A., Fathy, A., Mohamed, A.S., Hosny, K., Keshk, H.M. and Mohamed, S.A. (2025). A hybrid deep learning and rule-based model for smart weather forecasting and crop recommendation using satellite imagery. Scientific Reports, [online] 15(1). doi:https://doi.org/10.1038/s41598-025-21506-4.
+   \item www.kaggle.com. (2021). WEATHER PREDICTION. [online] Available at: https://www.kaggle.com/datasets/ananthr1/weather-prediction.
+\end{description}
+
+
+% ---------- APPENDIX ----------
+\section{Appendix}
+
+\href{https://github.com/Siotii/Rulebasedai}
+https://github.com/Siotii/Rulebasedai
+
+    \includegraphics[width=0.8\linewidth]{github.png}
+
+\end{document}
