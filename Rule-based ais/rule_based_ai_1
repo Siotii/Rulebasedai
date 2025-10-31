@@ -1,0 +1,54 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+df = pd.read_csv("Rule_based_ai_assement/seattle-weather.csv")
+#Rule Based AI Model 1 
+
+df["actual_wet"] = df["weather"].isin(["rain", "snow", "drizzle"])
+
+df["predicted_wet"] = (df["precipitation"] > 0.1) | (df["weather"].isin(["rain", "snow"]))
+
+accuracy1 = accuracy_score(df["actual_wet"], df["predicted_wet"])
+precision1 = precision_score(df["actual_wet"], df["predicted_wet"])
+recall1_= recall_score(df["actual_wet"], df["predicted_wet"])
+f1_1 = f1_score(df["actual_wet"], df["predicted_wet"])
+
+print("Rule-Based Model 1 Wet vs Dry")
+print(f"Accuracy: {accuracy1:.3f}")
+print(f"Precision, {precision1:.3f}")
+print(f"Recaoo: {recall1_:.3f}")
+print(f"F1 Score: {f1_1:.3f}\n")
+
+#Rule-Based AI Model 2
+
+df["actual_warm"] = df["temp_max"] >= 10
+df["predicted_warm"] = df["temp_max"] >= 10
+
+accuracy2 = accuracy_score(df["actual_warm"], df["predicted_warm"])
+precision2 = precision_score(df["actual_warm"], df["predicted_warm"])
+recall2 = recall_score(df["actual_warm"], df["predicted_warm"])
+f1_2 = f1_score(df["actual_warm"], df["predicted_warm"])
+
+print("Rule-Based Model 2 Cold vs Warm")
+print(f"Accuracy: {accuracy2:.3f}")
+print(f"Precision: {precision2:.3f}")
+print(f"Recall: {recall2:.3f}")
+print(f"F1 Score: {f1_2}")
+
+metrics = ["Accuracy", "Precision", "Recall", "F1 Score"]
+model1_scores = [accuracy1, precision1, recall1_, f1_1]
+model2_score = [accuracy2, precision2, recall2, f1_2]
+x = np.arange(len(metrics))
+width = 0.35
+
+plt.figure(figsize=(8,5))
+plt.bar(x - width/2, model1_scores, width, label = "Wet vs Dry Model")
+plt.bar(x + width/2, model2_score, width, label = "Warm vs Cold Model")
+plt.xticks(x, metrics)
+plt.ylabel("Score")
+plt.title("Model Compraision")
+plt.ylim(0,1)
+plt.legend()
+plt.show()
